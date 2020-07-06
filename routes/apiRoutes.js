@@ -25,9 +25,7 @@ module.exports = (app) => {
 
     app.delete('/api/notes/:id', (req,res) => {
         let idToDelete = req.params.id;
-        console.log(idToDelete);
         noteData = noteData.filter(note => parseInt(note.id) !== parseInt(idToDelete));
-        console.log(noteData);
         fs.writeFile(__dirname + '/../db/db.json', JSON.stringify(noteData), (err) => {
             if (err) throw err;
             else {
