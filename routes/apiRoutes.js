@@ -1,4 +1,4 @@
-const noteData = require('../db/db.json');
+let noteData = require('../db/db.json');
 const fs = require('fs');
 
 module.exports = (app) => {
@@ -18,13 +18,22 @@ module.exports = (app) => {
             }
             else {
                 res.json(newNote);
-                console.log('Success');
+                console.log('Successfully created note');
             }
         });
     });
 
-    app.delete('/api/notes:id', (req,res) => {
-        // let noteToDelete = req.params.id
-        res.send(console.log(req.params.id));
+    app.delete('/api/notes/:id', (req,res) => {
+        let idToDelete = req.params.id;
+        console.log(idToDelete);
+        noteData = noteData.filter(note => parseInt(note.id) !== parseInt(idToDelete));
+        console.log(noteData);
+        fs.writeFile(__dirname + '/../db/db.json', JSON.stringify(noteData), (err) => {
+            if (err) throw err;
+            else {
+                res.json(idToDelete);
+                console.log('Note deleted')
+            }
+        });
     });
 };
