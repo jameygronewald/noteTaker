@@ -20,7 +20,7 @@ Note Taker is a full-stack app that uses JavaScript, node.js, and Express.js to 
 * Once you have repo cloned and dependencies installed, run  ```node server.js``` in the command line to start server on localhost:8080.
 
 ## Usage
-1. View the deployed app (here)[https://warm-fortress-15653.herokuapp.com/].
+1. View the deployed app [here](https://warm-fortress-15653.herokuapp.com/).
 2. Click "Get Started" to navigate to notes page.
 3. Type in a title and text in the corresponding fields, and click the save icon in the upper right corner to save a note.
 4. Click a note on the note list on the left side of the viewport to view the note, or click the red trashcan icon to delete a note.
