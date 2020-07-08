@@ -10,7 +10,6 @@ module.exports = (app) => {
     app.post('/api/notes', (req, res) => {
         let newNote = req.body;
         newNote.id = Date.now();
-        console.log(newNote);
         noteData.push(newNote);
         fs.writeFile(__dirname + '/../db/db.json', JSON.stringify(noteData), (err) => {
             if (err) {
@@ -18,7 +17,6 @@ module.exports = (app) => {
             }
             else {
                 res.json(newNote);
-                console.log('Successfully created note');
             }
         });
     });
@@ -30,7 +28,6 @@ module.exports = (app) => {
             if (err) throw err;
             else {
                 res.json(idToDelete);
-                console.log('Note deleted')
             }
         });
     });
